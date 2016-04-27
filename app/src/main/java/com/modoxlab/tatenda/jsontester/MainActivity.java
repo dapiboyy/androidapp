@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.modoxlab.dedsec.jsontester.R.layout.activity_main);
+        setContentView(com.modoxlab.tatenda.jsontester.R.layout.activity_main);
 
         // Create default options which will be used for every
         //  displayImage(...) call if no options will be passed to this method
@@ -56,20 +56,20 @@ public class MainActivity extends AppCompatActivity {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
         ImageLoader.getInstance().init(config); // Do it on Application start
 
-        lvMovie = (ListView) findViewById(com.modoxlab.dedsec.jsontester.R.id.lvMovie);
-        progressBar = (ProgressBar) findViewById(com.modoxlab.dedsec.jsontester.R.id.pbload);
+        lvMovie = (ListView) findViewById(com.modoxlab.tatenda.jsontester.R.id.lvMovie);
+        progressBar = (ProgressBar) findViewById(com.modoxlab.tatenda.jsontester.R.id.pbload);
         new Sync().execute();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(com.modoxlab.dedsec.jsontester.R.menu.menu_main, menu);
+        getMenuInflater().inflate(com.modoxlab.tatenda.jsontester.R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == com.modoxlab.dedsec.jsontester.R.id.asrefresh) {
+        if (item.getItemId() == com.modoxlab.tatenda.jsontester.R.id.asrefresh) {
             new Sync().execute();
             return true;
         }
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             if (movieModels == null)
                 Toast.makeText(getApplicationContext(), "Please Check Your Internet Connection!!", Toast.LENGTH_SHORT).show();
             else {
-                Adapter adapter = new Adapter(getApplicationContext(), com.modoxlab.dedsec.jsontester.R.layout.adapter_layout, movieModels);
+                Adapter adapter = new Adapter(getApplicationContext(), com.modoxlab.tatenda.jsontester.R.layout.adapter_layout, movieModels);
                 lvMovie.setAdapter(adapter);
             }
         }
@@ -160,16 +160,16 @@ public class MainActivity extends AppCompatActivity {
             if (convertView == null) {
                 holder = new Holder();
                 convertView = layoutInflater.inflate(resource, null);
-                holder.imageView = (ImageView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.ivmovie);
-                holder.tvMovie = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvHeading);
-                holder.tvCast = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvCast);
-                holder.tvDirector = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvDirector);
-                holder.tvDuration = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvDuration);
-                holder.tvYear = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvYear);
-                holder.ratingBar = (RatingBar) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.rbMovie);
-                holder.tvStory = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvStory);
-                holder.tvTagline = (TextView) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.tvTagline);
-                holder.progressBar = (ProgressBar) convertView.findViewById(com.modoxlab.dedsec.jsontester.R.id.pbImage);
+                holder.imageView = (ImageView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.ivmovie);
+                holder.tvMovie = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvHeading);
+                holder.tvCast = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvCast);
+                holder.tvDirector = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvDirector);
+                holder.tvDuration = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvDuration);
+                holder.tvYear = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvYear);
+                holder.ratingBar = (RatingBar) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.rbMovie);
+                holder.tvStory = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvStory);
+                holder.tvTagline = (TextView) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.tvTagline);
+                holder.progressBar = (ProgressBar) convertView.findViewById(com.modoxlab.tatenda.jsontester.R.id.pbImage);
                 convertView.setTag(holder);
             } else {
                 holder = (Holder) convertView.getTag();
